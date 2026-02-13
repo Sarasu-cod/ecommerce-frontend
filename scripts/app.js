@@ -6,7 +6,7 @@ const errorMessage = document.getElementById("error-message");
 
 hamburger.addEventListener("click", () => {
     if (navMenu.style.display === "block") {
-        navMenu.style.display === "none"; 
+        navMenu.style.display = "none"; 
     } else {
         navMenu.style.display = "block";
     }
@@ -56,11 +56,22 @@ function renderProducts(products) {
         card.classList.add("product-card");
 
         card.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" loading="lazy">
-            <h3>${product.title.substring(0, 40)}...</h3>
+            <a href="product.html?id=${product.id}">
+                <img src="${product.image}" alt="${product.title}" loading="lazy">
+                <h3>${product.title.substring(0, 40)}...</h3>
+            </a>
             <p class="price">$${product.price}</p>
-            <button>Add to Cart</button>
+            <button class="add-btn">Add to Cart</button>
         `;
+
+        const button = card.querySelector(".add-btn");
+
+        button.addEventListener("click", () => {
+            addToCart({
+                ...product,
+                quantity: 1
+            });
+        });
 
         productGrid.appendChild(card);
     });

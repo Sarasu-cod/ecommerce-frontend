@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <header class="header">
+        <!-- reuse your existing header structure -->
+    </header>
+
+    <section class="product-detail">
+        <div class="container" id="product-detail-container">
+            <p>Loading product...</p>
+        </div>
+    </section>
+    <div class="image-container">
+        <img id="main-image" src="" alt="">
+    </div>
+    <div class="variation">
+        <label>Size:</label>
+        <select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
+    </div>
+
+    <div class="variation">
+        <label>Color:</label>
+        <select id="color-select">
+            <option value="Black">Black</option>
+            <option value="Blue">Blue</option>
+        </select>
+    </div>
+
+    <div class="quantity-selector">
+        <button id="decrease">-</button>
+        <input type="number" id="quantity" value="1" min="1">
+        <button id="increase">+</button>
+    </div>
+
+    <p id="cart-success" style="display:none;">Added to cart!</p>
+    <p>Total: $<span id="total-price"></span></p>
+
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/product.js"></script>
+</body>
+</html>
